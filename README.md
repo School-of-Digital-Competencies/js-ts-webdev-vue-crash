@@ -1,39 +1,55 @@
-# webdev-js-ts-vue-crash
+# SDC WebDev JS/TS Vue Crash
 
-This template should help get you started developing with Vue 3 in Vite.
+## Backend
 
-## Recommended IDE Setup
+There are several options what you could use as a Backend for our application
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Strapi https://strapi.io/
+- DummyJSON https://dummyjson.com/
+- Any other Backend you're familiar with
 
-## Type Support for `.vue` Imports in TS
+### Strapi
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Make sure you've got
+  - Node.js v.20 or v.18 installed
+  - npm is installed
+  - Python (is using a SQLite database)
+- In console run `npx create-strapi@latest my-strapi-project` where `my-strapi-project` is the folder for your backend project
+- No need to create a Cloud account, Skip this step
+- Then it's recommened to answer the questions like these
+  - use the default database (sqlite)? yes
+  - Start with example structure & data? no
+  - Start with TypeScript? yes
+  - Install dependencies with npm? yes
+  - Initialize git repostory? yes
+- Once installation is completed, in console type `cd my-strapi-project && npm run develop` to run Backend
+- Open `http://localhost:1337` in your browser (if it is not opened automatically)
+- First time super admin registration - fill the regustration form
 
-## Customize configuration
+Full instuctions on the Quick start guide page https://docs.strapi.io/dev-docs/quick-start
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### DummyJSON
 
-## Project Setup
+No need to configure it, just use
 
-```sh
-npm install
-```
+https://dummyjson.com/docs
 
-### Compile and Hot-Reload for Development
+## Frontend
 
-```sh
-npm run dev
-```
+### Docs
 
-### Type-Check, Compile and Minify for Production
+- Vue main website https://vuejs.org/
 
-```sh
-npm run build
-```
+### Installation
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- In console write down `npm create vue@latest` to create a folder with vue project inside
+- Project name: … <your-project-name>
+- Add TypeScript? Yes
+- Add JSX Support? No
+- Add Vue Router for Single Page Application development? No
+- Add Pinia for state management? No
+  ✔ Add Vitest for Unit testing? No
+  ✔ Add an End-to-End Testing Solution? … No / Cypress / Nightwatch / Playwright
+  ✔ Add ESLint for code quality? … No / Yes
+  ✔ Add Prettier for code formatting? … No / Yes
+  ✔ Add Vue DevTools 7 extension for debugging? (experimental) … No / Yes
