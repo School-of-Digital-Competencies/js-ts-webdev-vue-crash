@@ -1,5 +1,7 @@
 import qs from 'qs';
 import type {
+  TDeleteTodoRequest,
+  TDeleteTodoResponse,
   TGetTodoRequest,
   TGetTodoResponse,
   TGetTodosRequest,
@@ -94,9 +96,27 @@ async function putTodo(params: TPutTodoRequest) {
   }
 }
 
+async function deleteTodo(params: TDeleteTodoRequest) {
+  const { documentId } = params;
+  try {
+    const response = await fetch(`${API_URL}/todos/${documentId}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error('Network error');
+    }
+
+    return {} as Promise<TDeleteTodoResponse>;
+  } catch (err) {
+    throw err;
+  }
+}
+
 export default {
   getTodos,
   getTodo,
   postTodo,
   putTodo,
+  deleteTodo,
 };

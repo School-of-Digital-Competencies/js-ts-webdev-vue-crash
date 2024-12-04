@@ -66,3 +66,10 @@ export type TPutTodoResponse = {
   data: TTodo;
   meta: Partial<TMeta>;
 };
+
+// Delete a Todo
+export type TDeleteTodoRequest = {
+  documentId: string;
+};
+
+export type TDeleteTodoResponse = object;

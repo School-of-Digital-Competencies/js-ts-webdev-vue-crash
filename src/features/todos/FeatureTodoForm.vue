@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type TTodo, type TTodoEdit } from '@/entities';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 export type FeatureTodoFormProps = {
   item?: Readonly<TTodo>;
@@ -12,10 +12,19 @@ const emits = defineEmits<{
 }>();
 
 const todo = ref<TTodoEdit>({
-  completed: false,
-  todo: '',
-  //...props.item,
+  completed: props.item?.completed || false,
+  todo: props.item?.todo || '',
 });
+
+watch(
+  () => props.item,
+  (newValue) => {
+    todo.value = {
+      completed: newValue?.completed || false,
+      todo: newValue?.todo || '',
+    };
+  },
+);
 
 function submit() {
   emits('submit', todo.value);

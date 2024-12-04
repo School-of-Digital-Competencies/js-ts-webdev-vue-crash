@@ -2,11 +2,11 @@
 import type { TTodo } from '@/entities';
 import { computed } from 'vue';
 
-export type AppTodoCardProps = {
+export type FeatureTodoCardProps = {
   item: TTodo;
 };
 
-const { item } = defineProps<AppTodoCardProps>();
+const { item } = defineProps<FeatureTodoCardProps>();
 const emits = defineEmits<{
   edit: [documentId: string];
   delete: [documentId: string];
@@ -30,12 +30,12 @@ function handleDelete() {
 <template>
   <div class="card">
     <div class="card-content">
-      <div class="content">
+      <div class="content" :class="{ 'line-through': !item.completed }">
         {{ item.todo }}
-
-        <hr />
-        <time :datetime="item.updatedAt">Updated at: {{ updatedAt }}</time>
       </div>
+
+      <hr />
+      <time :datetime="item.updatedAt">Updated at: {{ updatedAt }}</time>
     </div>
 
     <footer class="card-footer">
@@ -44,3 +44,9 @@ function handleDelete() {
     </footer>
   </div>
 </template>
+
+<style>
+.line-through {
+  text-decoration: line-through;
+}
+</style>
