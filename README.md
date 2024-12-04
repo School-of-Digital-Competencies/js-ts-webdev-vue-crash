@@ -2,12 +2,6 @@
 
 ## Backend
 
-There are several options what you could use as a Backend for our application
-
-- Strapi https://strapi.io/
-- DummyJSON https://dummyjson.com/
-- Any other Backend you're familiar with
-
 ### Strapi
 
 - Make sure you've got
@@ -28,12 +22,6 @@ There are several options what you could use as a Backend for our application
 
 Full instuctions on the Quick start guide page https://docs.strapi.io/dev-docs/quick-start
 
-### DummyJSON
-
-No need to configure it, just use
-
-https://dummyjson.com/docs
-
 ## Frontend
 
 ### Docs
@@ -45,3 +33,99 @@ https://dummyjson.com/docs
 - Fork repo https://github.com/School-of-Digital-Competencies/js-ts-webdev-vue-crash into your account
 - Clone forked repo into your working machine
 - Work on `main` branch
+
+## Tasks
+
+Create a web page to add, edit, delete and display (with sorting, pagination and filtering) Quotes of some popular people
+
+Implement quote card in one of the designs from Figma https://www.figma.com/design/v9amjyHrrUVyT17LJZipQl/Quote-Cards-(Community)?node-id=0-1&node-type=canvas&t=lEz3pAjxbXMw70Wc-0
+
+## Add, support and work with Types
+
+### Quote Model
+
+```ts
+export type TQuote = {
+  // two fields created manually in Strapi
+  quote: string;
+  author: string;
+  // other system fields added by Strapi by default
+  id: number;
+  documentId: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+};
+
+export type TQuoteEdit = Pick<TQuote, 'quote' | 'author'>;
+```
+
+### Strapi common Models
+
+```ts
+export type TPagination = {
+  page: number;
+  pageSize: number;
+  withCount: boolean;
+};
+
+export type TSort = string | string[];
+
+export type TMeta = Omit<TPagination, 'withCount'> & {
+  pageCount: number;
+  total: number;
+};
+```
+
+### CRUD Models
+
+```ts
+// Get Quotes (a list of Quotes)
+export type TGetQuotesRequest = {
+  sort?: TSort;
+  pagination?: TPagination;
+};
+
+export type TGetQuotesResponse = {
+  data: TQuote[];
+  meta: TMeta;
+};
+
+// Get a Quote
+export type TGetQuoteRequest = {
+  documentId: string;
+};
+
+export type TGetQuoteResponse = {
+  data: TQuote;
+  meta: Partial<TMeta>;
+};
+
+// Post a Quote
+export type TPostQuoteRequest = {
+  data: TQuoteEdit;
+};
+
+export type TPostQuoteResponse = {
+  data: TQuote;
+  meta: Partial<TMeta>;
+};
+
+// Put a Quote
+export type TPutQuoteRequest = {
+  data: TQuoteEdit;
+  documentId: string;
+};
+
+export type TPutQuoteResponse = {
+  data: TQuote;
+  meta: Partial<TMeta>;
+};
+
+// Delete a Quote
+export type TDeleteQuoteRequest = {
+  documentId: string;
+};
+
+export type TDeleteQuoteResponse = object;
+```
