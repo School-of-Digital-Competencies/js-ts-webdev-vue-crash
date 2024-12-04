@@ -42,14 +42,6 @@ https://dummyjson.com/docs
 
 ### Installation
 
-- In console write down `npm create vue@latest` to create a folder with vue project inside
-- Project name: … <your-project-name>
-- Add TypeScript? Yes
-- Add JSX Support? No
-- Add Vue Router for Single Page Application development? No
-- Add Pinia for state management? No
-  ✔ Add Vitest for Unit testing? No
-  ✔ Add an End-to-End Testing Solution? … No / Cypress / Nightwatch / Playwright
-  ✔ Add ESLint for code quality? … No / Yes
-  ✔ Add Prettier for code formatting? … No / Yes
-  ✔ Add Vue DevTools 7 extension for debugging? (experimental) … No / Yes
+- Fork repo https://github.com/School-of-Digital-Competencies/js-ts-webdev-vue-crash into your account
+- Clone forked repo into your working machine
+- Work on `main` branch
