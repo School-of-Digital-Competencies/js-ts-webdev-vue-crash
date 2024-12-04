@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AppTodoCard } from '@/components';
+import { WidgetTodo } from '@/widgets';
 import { todosApi, type TGetTodosRequest } from '@/entities';
 import { useQuery } from '@tanstack/vue-query';
 import { computed, ref } from 'vue';
@@ -15,8 +15,6 @@ const todos = computed(() => (data.value || {}).data ?? []);
 
 <template>
   <article class="container">
-    <p>Current filters: {{ filters }}</p>
-
     <progress v-if="isFetching" class="progress is-small" max="100"></progress>
 
     <progress v-else-if="isPending" class="progress is-small is-primary" max="100"></progress>
@@ -29,7 +27,7 @@ const todos = computed(() => (data.value || {}).data ?? []);
       <article class="box">
         <div class="grid">
           <div v-for="item in todos" :key="item.documentId" class="cell">
-            <AppTodoCard :item="item"></AppTodoCard>
+            <WidgetTodo :item="item"></WidgetTodo>
           </div>
         </div>
       </article>

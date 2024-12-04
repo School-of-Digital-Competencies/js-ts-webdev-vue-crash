@@ -36,12 +36,33 @@ export type TGetTodosResponse = {
   meta: TMeta;
 };
 
+// Get a Todo
+export type TGetTodoRequest = {
+  documentId: string;
+};
+
+export type TGetTodoResponse = {
+  data: TTodo;
+  meta: Partial<TMeta>;
+};
+
 // Post a Todo
 export type TPostTodoRequest = {
   data: TTodoEdit;
 };
 
 export type TPostTodoResponse = {
+  data: TTodo;
+  meta: Partial<TMeta>;
+};
+
+// Put a Todo
+export type TPutTodoRequest = {
+  data: TTodoEdit;
+  documentId: string;
+};
+
+export type TPutTodoResponse = {
   data: TTodo;
   meta: Partial<TMeta>;
 };

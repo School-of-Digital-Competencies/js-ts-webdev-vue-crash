@@ -4,9 +4,14 @@ import { WidgetTodos, WidgetTodoAdd } from '@/widgets';
 </script>
 
 <template>
-  <main class="section level">
-    <WidgetTodoAdd></WidgetTodoAdd>
-    <WidgetTodos></WidgetTodos>
+  <main class="section columns">
+    <section class="column is-one-third">
+      <WidgetTodoAdd></WidgetTodoAdd>
+    </section>
+
+    <section class="column">
+      <WidgetTodos></WidgetTodos>
+    </section>
   </main>
 
   <VueQueryDevtools />
