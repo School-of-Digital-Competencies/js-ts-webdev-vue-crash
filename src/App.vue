@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { WidgetTodoAdd, WidgetTodos } from '@/widgets';
 import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
-import { WidgetTodos, WidgetTodoAdd } from '@/widgets';
 </script>
 
 <template>

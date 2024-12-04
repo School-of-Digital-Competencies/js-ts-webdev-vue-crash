@@ -30,9 +30,7 @@ function handleDelete() {
 <template>
   <div class="card">
     <div class="card-content">
-      <div class="content" :class="{ 'line-through': !item.completed }">
-        {{ item.todo }}
-      </div>
+      <div class="content" :class="{ 'line-through': !!item.completed }">{{ item.todo }}</div>
 
       <hr />
       <time :datetime="item.updatedAt">Updated at: {{ updatedAt }}</time>

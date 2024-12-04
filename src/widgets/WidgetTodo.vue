@@ -6,7 +6,7 @@ import { useMutation, useQueryClient } from '@tanstack/vue-query';
 import { ref } from 'vue';
 
 export type WidgetTodoProps = {
-  item: Readonly<TTodo>;
+  item: TTodo;
 };
 
 const { item } = defineProps<WidgetTodoProps>();

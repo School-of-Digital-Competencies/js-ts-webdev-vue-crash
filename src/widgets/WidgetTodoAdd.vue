@@ -2,6 +2,7 @@
 import { todosApi, type TPostTodoRequest, type TTodoEdit } from '@/entities';
 import { FeatureTodoForm } from '@/features';
 import { useMutation, useQueryClient } from '@tanstack/vue-query';
+import { ref, watch } from 'vue';
 
 const queryClient = useQueryClient();
 
@@ -21,6 +22,21 @@ async function handleAddTodo(value: TTodoEdit) {
     console.error(err);
   }
 }
+
+const isSuccessVisible = ref(false);
+
+watch(
+  () => isSuccess.value,
+  (newValue) => {
+    if (newValue) {
+      isSuccessVisible.value = true;
+
+      setTimeout(() => {
+        isSuccessVisible.value = false;
+      }, 2000);
+    }
+  },
+);
 </script>
 
 <template>
@@ -37,7 +53,7 @@ async function handleAddTodo(value: TTodoEdit) {
       </div>
     </article>
 
-    <article v-else-if="isSuccess" class="message is-success">
+    <article v-else-if="isSuccessVisible" class="message is-success">
       <div class="message-header">
         <p>Success</p>
       </div>

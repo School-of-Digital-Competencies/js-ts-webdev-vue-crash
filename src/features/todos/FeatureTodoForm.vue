@@ -33,8 +33,6 @@ function submit() {
 
 <template>
   <form class="box" @submit.prevent="submit">
-    <div class="field">props = {{ props }}</div>
-
     <div class="field">
       <label class="label" for="todo-todo">Todo</label>
       <div class="control">
