@@ -9,11 +9,9 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
       <WidgetTodoAdd></WidgetTodoAdd>
     </section>
 
-
-    <section class="column">
+    <section class="column is-full">
       <WidgetTodos></WidgetTodos>
     </section>
-
   </main>
 
   <VueQueryDevtools />

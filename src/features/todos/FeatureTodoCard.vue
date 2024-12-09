@@ -9,7 +9,7 @@ export type FeatureTodoCardProps = {
 const { item } = defineProps<FeatureTodoCardProps>();
 const emits = defineEmits<{
   edit: [documentId: string];
-  delete: [documentId: string];
+  modify: [documentId: string];
 }>();
 
 const updatedAt = computed<string>(() => {
@@ -23,7 +23,7 @@ function handleEdit() {
 }
 
 function handleDelete() {
-  emits('delete', item.documentId);
+  emits('modify', item.documentId);
 }
 </script>
 
