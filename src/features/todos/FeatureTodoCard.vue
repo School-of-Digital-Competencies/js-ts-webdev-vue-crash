@@ -10,6 +10,8 @@ const { item } = defineProps<FeatureTodoCardProps>();
 const emits = defineEmits<{
   edit: [documentId: string];
   modify: [documentId: string];
+  view: [documentId: string];
+  delete: [documentId: string];
 }>();
 
 const updatedAt = computed<string>(() => {
@@ -22,8 +24,16 @@ function handleEdit() {
   emits('edit', item.documentId);
 }
 
-function handleDelete() {
+function handleModify() {
   emits('modify', item.documentId);
+}
+
+function handleView() {
+  emits('view', item.documentId);
+}
+
+function handleDelete() {
+  emits('delete', item.documentId);
 }
 </script>
 
