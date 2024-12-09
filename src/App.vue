@@ -8,10 +8,6 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
     <section class="column is-two-thirds">
       <WidgetTodoAdd></WidgetTodoAdd>
     </section>
-
-    <section class="column">
-      <WidgetTodos></WidgetTodos>
-    </section>
   </main>
 
   <VueQueryDevtools />
