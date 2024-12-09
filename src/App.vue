@@ -9,13 +9,11 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
       <WidgetTodoAdd></WidgetTodoAdd>
     </section>
 
-    <section class="column">Some</section>
 
-    <section class="column is-one-third">
+    <section class="column">
       <WidgetTodos></WidgetTodos>
     </section>
 
-    <section class="column">Some</section>
   </main>
 
   <VueQueryDevtools />
