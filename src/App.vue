@@ -5,7 +5,7 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
 
 <template>
   <main class="section columns">
-    <section class="column is-one-third">
+    <section class="column is-two-thirds">
       <WidgetTodoAdd></WidgetTodoAdd>
     </section>
 
