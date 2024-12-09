@@ -9,11 +9,6 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
       <WidgetTodoAdd></WidgetTodoAdd>
     </section>
 
-
-    <section class="column">
-      <WidgetTodos></WidgetTodos>
-    </section>
-
   </main>
 
   <VueQueryDevtools />
